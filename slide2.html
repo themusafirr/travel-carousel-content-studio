@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Slide 2 - Wonders</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #2C4797; font-family: 'Georgia', serif; }
+.slide {
+  width: 1080px; height: 1080px;
+  background: #2C4797; color: white;
+  display: flex; flex-direction: column;
+  padding: 60px 80px; justify-content: flex-start;
+}
+.slide h1 { font-size: 70px; margin-bottom: 60px; font-weight: bold; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; width: 100%; }
+.card {
+  background: #3A5BB8; border-radius: 20px;
+  padding: 40px 30px; min-height: 480px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.card .number { font-size: 90px; font-weight: bold; margin-bottom: 20px; }
+.card h2 { font-size: 32px; margin-bottom: 10px; font-weight: 600; }
+.card p { font-size: 22px; line-height: 1.4; margin-top: 30px; }
+.card p strong { font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <h1>Explore Rawatbhata's Wonders</h1>
+  <div class="grid-3">
+    <div class="card">
+      <div class="number">01</div>
+      <div>
+        <h2>Chittorgarh<br>Fort (Nearby)</h2>
+        <p>A stunning <strong>UNESCO heritage</strong> site just 50 km away.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="number">02</div>
+      <div>
+        <h2>Rana Pratap<br>Sagar Dam</h2>
+        <p>Experience the <strong>majestic dam</strong> views and sunsets.</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="number">03</div>
+      <div>
+        <h2>Local<br>Street Food</h2>
+        <p>Famous for its <strong>delicious kachori</strong> and chai.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

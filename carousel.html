@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Rawatbhata Carousel</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a2a52; font-family: 'Georgia', serif; }
+  .slide {
+    width: 1080px;
+    height: 1080px;
+    background: #2C4797;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+  /* SLIDE 1 - Cover */
+  .slide-1 {
+    padding: 60px;
+    display: flex;
+  }
+  .slide-1 .image-box {
+    width: 480px;
+    height: 720px;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #1a2a52;
+  }
+  .slide-1 .image-box img { width: 100%; height: 100%; object-fit: cover; }
+  .slide-1 .text-area {
+    flex: 1;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .slide-1 h1 {
+    font-size: 110px;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+  }
+  .slide-1 .flag-divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    gap: 20px;
+  }
+  .slide-1 .flag {
+    width: 60px;
+    height: 40px;
+    background: linear-gradient(to bottom, #FF9933 33%, #FFFFFF 33% 66%, #138808 66%);
+    border-radius: 4px;
+  }
+  .slide-1 .pipe {
+    font-size: 80px;
+    font-weight: 200;
+  }
+  .slide-1 h2 {
+    font-size: 90px;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 30px;
+  }
+  .slide-1 .subtitle {
+    font-size: 36px;
+    margin-top: 40px;
+    opacity: 0.9;
+  }
+  .slide-1 .presenter {
+    position: absolute;
+    bottom: 60px;
+    right: 60px;
+    text-align: right;
+  }
+  .slide-1 .presenter .name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #B8C5E0;
+  }
+  .slide-1 .presenter .role {
+    font-size: 22px;
+    color: white;
+  }
+
+  /* SLIDE 2 - Wonders Grid */
+  .slide-2 {
+    flex-direction: column;
+    padding: 60px 80px;
+    justify-content: flex-start;
+  }
+  .slide-2 h1 {
+    font-size: 70px;
+    margin-bottom: 60px;
+    font-weight: bold;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+  }
+  .card {
+    background: #3A5BB8;
+    border-radius: 20px;
+    padding: 40px 30px;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .card .number {
+    font-size: 90px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .card h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .card p {
+    font-size: 22px;
+    line-height: 1.4;
+    margin-top: 30px;
+  }
+  .card p strong { font-weight: bold; }
+
+  /* SLIDE 3 - Trip Essentials */
+  .slide-3 {
+    flex-direction: column;
+    padding: 60px 80px;
+  }
+  .slide-3 .header {
+    width: 100%;
+  }
+  .slide-3 h1 {
+    font-size: 65px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .slide-3 .sub {
+    font-size: 28px;
+    color: #B8C5E0;
+    font-weight: bold;
+    margin-bottom: 80px;
+  }
+  .slide-3 .info-row {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 60px;
+  }
+  .slide-3 .info-box {
+    background: #6B85C4;
+    border-radius: 60px;
+    padding: 30px 50px;
+    font-size: 60px;
+    font-weight: bold;
+  }
+  .slide-3 .info-labels {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 60px;
+    gap: 80px;
+  }
+  .slide-3 .info-text {
+    text-align: left;
+    max-width: 400px;
+  }
+  .slide-3 .info-text h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  .slide-3 .info-text p {
+    font-size: 22px;
+    opacity: 0.9;
+  }
+
+  /* SLIDE 4 - Insider Tips */
+  .slide-4 {
+    padding: 60px 80px;
+    gap: 50px;
+  }
+  .slide-4 .left { flex: 1; }
+  .slide-4 h1 {
+    font-size: 80px;
+    line-height: 1;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .slide-4 .sub {
+    font-size: 28px;
+    color: #B8C5E0;
+    font-weight: bold;
+  }
+  .slide-4 .right {
+    flex: 1.1;
+    background: white;
+    color: #2C4797;
+    border-radius: 20px;
+    padding: 50px;
+  }
+  .tip {
+    margin-bottom: 30px;
+  }
+  .tip h3 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .tip p {
+    font-size: 20px;
+    color: #4A5A8C;
+  }
+
+  /* SLIDE 5 - Stay Connected */
+  .slide-5 {
+    padding: 60px 80px;
+    gap: 40px;
+  }
+  .slide-5 .left { flex: 1; }
+  .slide-5 h1 {
+    font-size: 90px;
+    line-height: 1;
+    margin-bottom: 80px;
+    font-weight: bold;
+  }
+  .slide-5 .contact-block {
+    margin-bottom: 40px;
+  }
+  .slide-5 .contact-block .label {
+    font-size: 22px;
+    color: #B8C5E0;
+    margin-bottom: 5px;
+  }
+  .slide-5 .contact-block .value {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  .slide-5 .right {
+    flex: 1;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .slide-5 .right img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+</head>
+<body>
+  <!-- SLIDE 1: Cover -->
+  <div class="slide slide-1" id="slide-1">
+    <div class="image-box">
+      <img src="rwt_cover.jpg" alt="Rawatbhata">
+    </div>
+    <div class="text-area">
+      <h1>RAWATBHATA</h1>
+      <div class="flag-divider">
+        <div class="flag"></div>
+        <span class="pipe">|</span>
+      </div>
+      <h2>Hidden<br>Gem of<br>Rajasthan</h2>
+      <p class="subtitle">Discover the magic of Rawatbhata</p>
+    </div>
+    <div class="presenter">
+      <div class="name">[Pankaj Kalosiya]</div>
+      <div class="role">Local Explorer & Guide</div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2: Wonders -->
+  <div class="slide slide-2" id="slide-2">
+    <h1>Explore Rawatbhata's Wonders</h1>
+    <div class="grid-3">
+      <div class="card">
+        <div class="number">01</div>
+        <div>
+          <h2>Chittorgarh<br>Fort (Nearby)</h2>
+          <p>A stunning <strong>UNESCO heritage</strong> site just 50 km away.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="number">02</div>
+        <div>
+          <h2>Rana Pratap<br>Sagar Dam</h2>
+          <p>Experience the <strong>majestic dam</strong> views and sunsets.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="number">03</div>
+        <div>
+          <h2>Local<br>Street Food</h2>
+          <p>Famous for its <strong>delicious kachori</strong> and chai.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 3: Trip Essentials -->
+  <div class="slide slide-3" id="slide-3">
+    <div class="header">
+      <h1>Rawatbhata Trip Essentials</h1>
+      <div class="sub">Best Time to Visit & Budget</div>
+    </div>
+    <div class="info-row">
+      <div class="info-box">October-March</div>
+      <div class="info-box">₹2000-4000</div>
+    </div>
+    <div class="info-labels">
+      <div class="info-text">
+        <h3>Ideal Visiting Months</h3>
+        <p>Perfect weather for outdoor exploration.</p>
+      </div>
+      <div class="info-text">
+        <h3>Budget for 3 Days</h3>
+        <p>Affordable and enjoyable trip experience.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 4: Insider Tips -->
+  <div class="slide slide-4" id="slide-4">
+    <div class="left">
+      <h1>Rawatbhata<br>Insider Tips</h1>
+      <div class="sub">Expert Advice for Your Trip</div>
+    </div>
+    <div class="right">
+      <div class="tip">
+        <h3>Early Morning Walk</h3>
+        <p>Start at 6 AM for cool weather and peaceful vibes.</p>
+      </div>
+      <div class="tip">
+        <h3>Explore Nearby</h3>
+        <p>Visit Chittorgarh Fort and Rana Pratap Sagar.</p>
+      </div>
+      <div class="tip">
+        <h3>Local Market</h3>
+        <p>Buy fresh sabzi and local mawa sweets.</p>
+      </div>
+      <div class="tip">
+        <h3>Sunset Point</h3>
+        <p>Dam ke paas sunset dekhna mat bhoolna.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 5: Stay Connected -->
+  <div class="slide slide-5" id="slide-5">
+    <div class="left">
+      <h1>Stay<br>Connected</h1>
+      <div class="contact-block">
+        <div class="label">Email</div>
+        <div class="value">pankajkalosiya6@gmail.com</div>
+      </div>
+      <div class="contact-block">
+        <div class="label">Social Media</div>
+        <div class="value">@the.musafirrr__</div>
+      </div>
+      <div class="contact-block">
+        <div class="label">Phone</div>
+        <div class="value">+91 82905 94012</div>
+      </div>
+    </div>
+    <div class="right">
+      <img src="rwt_market.jpg" alt="Rawatbhata Market">
+    </div>
+  </div>
+</body>
+</html>
