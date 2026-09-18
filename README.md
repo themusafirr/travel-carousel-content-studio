@@ -7,7 +7,15 @@
 
 > Production-ready travel content studio producing multi-slide aesthetic carousels, responsive travel diary stories, and viral YouTube shorts layouts spotlighting Rajasthan's hidden gems, forts, lakes, and heritage architecture.
 
+
+<div align="center">
+  <br/>
+  <img src="./assets/preview.png" width="100%" alt="Live UI Preview" style="border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);" />
+  <br/>
+</div>
+
 ---
+
 
 ## 🌟 Highlights & Content Engine
 
