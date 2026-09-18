@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Diaries — Rajasthan Heritage & Hidden Gems</title>
+  <link rel="icon" href="jaipur_palace.jpg">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card-bg: #161b22;
+      --accent: #ff7b00;
+      --accent-glow: rgba(255, 123, 0, 0.4);
+      --cyan: #38bdf8;
+      --text: #f0f6fc;
+      --text-dim: #8b949e;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background: var(--bg); color: var(--text); min-height: 100vh; display: flex; flex-direction: column; }
+    
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      background: radial-gradient(circle at top, #1e293b, var(--bg));
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(255, 123, 0, 0.15);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 6px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; }
+    h1 span { color: var(--accent); }
+    p.sub { color: var(--text-dim); margin-top: 8px; font-size: 16px; }
+
+    .nav-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .tab-btn {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text);
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--accent);
+      color: #000;
+      border-color: var(--accent);
+      box-shadow: 0 4px 15px var(--accent-glow);
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .carousel-viewer {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.6);
+      position: relative;
+    }
+
+    .slide-frame {
+      width: 100%;
+      height: 680px;
+      border: none;
+      display: block;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: #0f141c;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .ctrl-btn {
+      background: var(--cyan);
+      color: #0d1117;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .ctrl-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+    .slide-indicator { font-weight: 600; color: var(--text-dim); }
+
+    .gallery-section {
+      margin-top: 60px;
+    }
+    .section-heading {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .gallery-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .gallery-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+    .gallery-card img { width: 100%; height: 200px; object-fit: cover; }
+    .gallery-card .info { padding: 14px 16px; }
+    .gallery-card h4 { font-size: 16px; margin-bottom: 4px; }
+    .gallery-card p { font-size: 13px; color: var(--text-dim); }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--text-dim);
+      font-size: 14px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 60px;
+    }
+    footer a { color: var(--cyan); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">🎒 The Musafir Travel Series</div>
+    <h1>RAJASTHAN <span>TRAVEL DIARIES</span></h1>
+    <p class="sub">Curated aesthetic carousels, hidden landmarks, and heritage travel guides.</p>
+    
+    <div class="nav-tabs">
+      <button class="tab-btn active" onclick="loadSlide('slide1.html', 1)">Cover Slide</button>
+      <button class="tab-btn" onclick="loadSlide('slide2.html', 2)">Rana Pratap Sagar</button>
+      <button class="tab-btn" onclick="loadSlide('slide3.html', 3)">Padajhar Waterfall</button>
+      <button class="tab-btn" onclick="loadSlide('slide4.html', 4)">Bhainsrorgarh Fort</button>
+      <button class="tab-btn" onclick="loadSlide('slide5.html', 5)">Final CTA & Map</button>
+      <button class="tab-btn" onclick="loadSlide('carousel.html', 0)">Full Reel Grid</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="carousel-viewer">
+      <iframe id="slideViewer" class="slide-frame" src="slide1.html"></iframe>
+      <div class="controls">
+        <button class="ctrl-btn" id="prevBtn" onclick="stepSlide(-1)">◀ Previous</button>
+        <span class="slide-indicator" id="indicator">Slide 1 of 5</span>
+        <button class="ctrl-btn" id="nextBtn" onclick="stepSlide(1)">Next ▶</button>
+      </div>
+    </div>
+
+    <div class="gallery-section">
+      <h3 class="section-heading">📸 Explore Rajasthan Destination Photography</h3>
+      <div class="gallery-grid">
+        <div class="gallery-card">
+          <img src="jaipur_palace.jpg" alt="City Palace Jaipur">
+          <div class="info">
+            <h4>City Palace</h4>
+            <p>Jaipur, Rajasthan</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="jaipur_hawa.jpg" alt="Hawa Mahal">
+          <div class="info">
+            <h4>Hawa Mahal</h4>
+            <p>Jaipur, Rajasthan</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="jaipur_fort.jpg" alt="Amer Fort">
+          <div class="info">
+            <h4>Amer Fort</h4>
+            <p>Jaipur, Rajasthan</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="jaipur_lake.jpg" alt="Jal Mahal">
+          <div class="info">
+            <h4>Jal Mahal</h4>
+            <p>Jaipur, Rajasthan</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="rwt_real1.jpg" alt="Rana Pratap Sagar Dam">
+          <div class="info">
+            <h4>Rana Pratap Sagar</h4>
+            <p>Rawatbhata, Rajasthan</p>
+          </div>
+        </div>
+        <div class="gallery-card">
+          <img src="rwt_desert.jpg" alt="Thar Sand Dunes">
+          <div class="info">
+            <h4>Thar Sand Dunes</h4>
+            <p>Jaisalmer, Rajasthan</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Curated with passion by <a href="https://github.com/themusafirr">The Musafir (@the.musafirrr__)</a> • Travel Content Studio</p>
+  </footer>
+
+  <script>
+    const slides = ['slide1.html', 'slide2.html', 'slide3.html', 'slide4.html', 'slide5.html'];
+    let currentIdx = 0;
+
+    function loadSlide(url, num) {
+      document.getElementById('slideViewer').src = url;
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach((btn, i) => {
+        btn.classList.toggle('active', (num === 0 && i === 5) || (num > 0 && i === num - 1));
+      });
+      if (num > 0) {
+        currentIdx = num - 1;
+        document.getElementById('indicator').innerText = 'Slide ' + num + ' of ' + slides.length;
+      } else {
+        document.getElementById('indicator').innerText = 'Full Multi-Slide Carousel View';
+      }
+      updateButtons();
+    }
+
+    function stepSlide(dir) {
+      currentIdx += dir;
+      if (currentIdx < 0) currentIdx = 0;
+      if (currentIdx >= slides.length) currentIdx = slides.length - 1;
+      loadSlide(slides[currentIdx], currentIdx + 1);
+    }
+
+    function updateButtons() {
+      document.getElementById('prevBtn').disabled = currentIdx === 0;
+      document.getElementById('nextBtn').disabled = currentIdx === slides.length - 1;
+    }
+    updateButtons();
+  </script>
+</body>
+</html>
